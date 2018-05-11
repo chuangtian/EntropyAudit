@@ -27,3 +27,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- Weak hash detection for password handling, md5 and sha1 (EA004).
+- Sample pair: `samples/vulnerable_auth.py` and `samples/clean_auth.py`.
+
+## [0.5.0] - 2023-02-14
