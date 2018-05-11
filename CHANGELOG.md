@@ -23,3 +23,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Reused nonce and IV constant detection (EA005).
 - Fixed-salt detection for password hashing (EA006).
 
+## [0.6.0] - 2024-03-12
+
+### Added
+
