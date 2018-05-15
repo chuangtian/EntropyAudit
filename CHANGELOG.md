@@ -31,3 +31,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Sample pair: `samples/vulnerable_auth.py` and `samples/clean_auth.py`.
 
 ## [0.5.0] - 2023-02-14
+
+### Added
+
