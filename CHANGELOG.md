@@ -42,3 +42,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 
 - `random` versus `secrets` misuse detection (EA002).
+- Context tracking for imported aliases.
+
+## [0.3.0] - 2020-12-01
+
