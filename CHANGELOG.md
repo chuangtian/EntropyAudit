@@ -46,3 +46,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.3.0] - 2020-12-01
 
+### Added
+
+- Predictable seed detection (EA001) with a per-line rationale.
+- Machine-readable JSON findings.
