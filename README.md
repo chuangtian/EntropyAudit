@@ -44,3 +44,15 @@ and the token looks fine in a log. The defect only becomes visible when someone
 attacks it.
 
 The same quietness applies to the other patterns this tool checks. A seed of
+`1337` produces the same stream on every run. A nonce assigned to a constant
+repeats on every encryption. A salt hard coded once is shared by every user. A
+password hashed with `md5` is one commodity GPU away from a wordlist. Each of
+these is a single line that behaves correctly in a demo and fails only against
+an adversary who is not in the room during code review.
+
+entropyaudit exists to make these lines visible before that adversary finds
+them. It does not prove exploitability in a given deployment; it flags the
+pattern and explains the exploit path so a reviewer can decide. The written
+rationale is the point: a bare "CWE-338" tells a reviewer nothing they can act
+on, while "Mersenne Twister state can be recovered from a few hundred outputs,
+so use `secrets`" tells them exactly what to change and why.
