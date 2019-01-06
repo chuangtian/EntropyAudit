@@ -56,3 +56,16 @@ pattern and explains the exploit path so a reviewer can decide. The written
 rationale is the point: a bare "CWE-338" tells a reviewer nothing they can act
 on, while "Mersenne Twister state can be recovered from a few hundred outputs,
 so use `secrets`" tells them exactly what to change and why.
+
+## Install
+
+Install from the project directory:
+
+```
+pip install .
+```
+
+Or run it in place without installing. On Windows PowerShell:
+
+```
+$env:PYTHONPATH="src"
