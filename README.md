@@ -69,3 +69,15 @@ Or run it in place without installing. On Windows PowerShell:
 
 ```
 $env:PYTHONPATH="src"
+python -m entropyaudit scan samples
+```
+
+On a POSIX shell:
+
+```
+PYTHONPATH=src python -m entropyaudit scan samples
+```
+
+Installing also registers an `entropyaudit` console script through the
+`[project.scripts]` entry in `pyproject.toml`, so `entropyaudit scan samples`
+works once the package is on the path.
