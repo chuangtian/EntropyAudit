@@ -81,3 +81,16 @@ PYTHONPATH=src python -m entropyaudit scan samples
 Installing also registers an `entropyaudit` console script through the
 `[project.scripts]` entry in `pyproject.toml`, so `entropyaudit scan samples`
 works once the package is on the path.
+
+## Commands
+
+Four subcommands. Each takes a file or a directory; a directory is walked in
+sorted, deterministic order and every `.py` file under it is scanned.
+
+| Command   | Argument    | What it prints                                                 |
+|-----------|-------------|----------------------------------------------------------------|
+| `scan`    | path        | One block per finding: location, category, code, and rationale.|
+| `report`  | path        | A grouped report: counts by class, then findings under each.   |
+| `explain` | rule id (optional) | The rationale for one rule, or all six when omitted.    |
+| `version` | none        | The package version string.                                    |
+
