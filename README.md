@@ -170,3 +170,15 @@ message_nonce = os.urandom(12)         # after (import os)
 Matches a `salt` named target bound to a constant literal. Class: Use of a
 One-Way Hash with a Predictable Salt, CWE-760, severity medium.
 
+Exploitability: a fixed salt means identical inputs hash to identical digests
+across all users and installs. An attacker can precompute one rainbow table and
+reuse it everywhere, and identical passwords become visibly identical.
+
+```python
+password_salt = b"static-salt-1234"        # before
+password_salt = secrets.token_bytes(16)    # after (import secrets)
+```
+
+### EA006: weak hash used for password handling
+
+Matches `hashlib.md5`, `sha1`, `sha256`, or `sha224` (including the
