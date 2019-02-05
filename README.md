@@ -182,3 +182,16 @@ password_salt = secrets.token_bytes(16)    # after (import secrets)
 ### EA006: weak hash used for password handling
 
 Matches `hashlib.md5`, `sha1`, `sha256`, or `sha224` (including the
+`hashlib.new("md5")` string form) when a password-like identifier
+(`password`, `passwd`, `pwd`, `credential`) is the assignment target. Class: Use
+of Password Hash With Insufficient Computational Effort, CWE-916, severity high.
+
+Exploitability: fast hashes are designed for speed, so an attacker with the
+stored digest can try billions of guesses per second on commodity hardware.
+Password storage needs a slow, salted function.
+
+```python
+# before
+password_hash = hashlib.md5(password.encode("utf-8")).hexdigest()
+# after
+password_hash = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, 200000)
