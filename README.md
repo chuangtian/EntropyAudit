@@ -220,3 +220,16 @@ The identifier is the deciding signal for EA002, not the file context. A module
 that imports `hashlib` for one function and also picks a greeting with
 `random.choice` should not have that greeting flagged. Because the enclosing
 assignment target (`greeting`) carries no security term, the harmless
+`random.choice(['hi', 'hello'])` is left alone. That is precisely the case the
+clean sample and a dedicated unit test exercise.
+
+## False positives and false negatives
+
+Stated plainly, because a scanner that hides its blind spots is worse than one
+that names them.
+
+False positives are minimised by requiring a security relevant identifier for
+EA002 and a constant literal binding for EA004 and EA005. On the bundled clean
+sample, which imports `hashlib` and `secrets` and uses `random.choice` for a
+greeting, the tool reports zero findings.
+
