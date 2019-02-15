@@ -258,3 +258,15 @@ findings by class:
       1  Predictable Seed in PRNG
       2  Reusing a Nonce or Key Pair in Encryption
       1  Use of Cryptographically Weak PRNG
+      1  Use of Insufficiently Random Values
+      1  Use of Password Hash With Insufficient Computational Effort
+      1  Use of a One-Way Hash with a Predictable Salt
+
+Predictable Seed in PRNG
+    samples/vulnerable_auth.py:18:0 [high] EA003 Generator seeded from wall-clock time
+
+Reusing a Nonce or Key Pair in Encryption
+    samples/vulnerable_auth.py:21:0 [high] EA004 Reused nonce or IV bound to a constant
+    samples/vulnerable_auth.py:24:0 [high] EA004 Reused nonce or IV bound to a constant
+
+Use of Cryptographically Weak PRNG
