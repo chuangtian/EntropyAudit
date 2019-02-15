@@ -270,3 +270,16 @@ Reusing a Nonce or Key Pair in Encryption
     samples/vulnerable_auth.py:24:0 [high] EA004 Reused nonce or IV bound to a constant
 
 Use of Cryptographically Weak PRNG
+    samples/vulnerable_auth.py:33:20 [high] EA002 random module used on a security-relevant path
+
+Use of Insufficiently Random Values
+    samples/vulnerable_auth.py:15:0 [high] EA001 Predictable seed passed to random generator
+
+Use of Password Hash With Insufficient Computational Effort
+    samples/vulnerable_auth.py:39:20 [high] EA006 Weak hash used for password handling
+
+Use of a One-Way Hash with a Predictable Salt
+    samples/vulnerable_auth.py:27:0 [medium] EA005 Fixed salt used for key derivation or hashing
+
+7 findings: 6 high, 1 medium, 0 low
+```
