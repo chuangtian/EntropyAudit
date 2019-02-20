@@ -296,3 +296,15 @@ $ python -m entropyaudit scan samples/clean_auth.py
 0 findings
 ```
 
+## Output format
+
+The `scan` view prints one block per finding, then a summary line. Each field is
+fixed, so the format can be treated as a contract.
+
+| Line             | Format                                                     | Source        |
+|------------------|------------------------------------------------------------|---------------|
+| header           | `path:line:col: SEVERITY RULEID Title`                     | `report.py`   |
+| category         | `    category: <CWE class> (<CWE id>)`                     | `patterns.py` |
+| code             | `    code: <the offending source, unparsed from the AST>` | `pyscan.py`   |
+| why              | `    why: <exploitability rationale>`                      | `rationale.py`|
+| summary          | `N findings: H high, M medium, L low` (or `0 findings`)   | `report.py`   |
