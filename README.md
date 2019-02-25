@@ -333,3 +333,16 @@ a POSIX CI step:
 
 ```
 PYTHONPATH=src python -m entropyaudit scan src || exit 1
+```
+
+The job fails when any finding fires and passes when the tree is clean. To
+inspect changes over time, run `report` on two revisions and diff the output;
+the sorted, deterministic rendering means the diff shows only real changes in
+findings, not reordering noise.
+
+## Limitations
+
+- Static analysis cannot see runtime seeding. entropyaudit reads the source
+  tree; it never executes the code, so a seed computed at runtime from a value
+  it cannot fold is invisible to it.
+- It only reads Python. Files are parsed with the stdlib `ast` module, so a
