@@ -321,3 +321,15 @@ same input tree always yields byte identical output and diffs cleanly in git.
 |------|----------------------------------------------------------------|
 | 0    | Clean. No findings.                                            |
 | 1    | Findings present. `scan` and `report` return 1 when any fire. |
+| 2    | Usage error. Unknown rule id to `explain`, or argparse error. |
+
+These were confirmed in this session: `scan` on the vulnerable sample exited 1,
+`scan` on the clean sample exited 0, and `version` exited 0.
+
+## Using it in CI
+
+Because a non-zero exit means findings, a scan can gate a pipeline directly. In
+a POSIX CI step:
+
+```
+PYTHONPATH=src python -m entropyaudit scan src || exit 1
