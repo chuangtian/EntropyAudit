@@ -346,3 +346,16 @@ findings, not reordering noise.
   tree; it never executes the code, so a seed computed at runtime from a value
   it cannot fold is invisible to it.
 - It only reads Python. Files are parsed with the stdlib `ast` module, so a
+  weak construct written in another language, or in a string passed to `eval`,
+  is out of scope.
+- It is name and pattern based, not data flow based. A weak value stored under a
+  non descriptive name and later used as a secret is missed by design.
+- Constant detection for nonces, IVs, and salts looks at direct literal
+  bindings. A constant assembled from other constants at runtime is not folded.
+- It reads one file at a time and does not resolve imports across modules.
+- It reports the presence of a risky pattern. It does not prove the code is
+  exploitable in a given deployment.
+
+## Design decisions
+
+Why `ast` rather than regex. A regex over source text cannot tell
