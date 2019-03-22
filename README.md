@@ -396,3 +396,16 @@ entropyaudit/
     README.md               describes the two test vectors
     vulnerable_auth.py      one construct per rule, EA004 twice
     clean_auth.py           the same work done correctly, zero findings
+  tests/
+    test_entropyaudit.py    stdlib unittest suite
+  docs/assets/
+    logo.svg                the wordmark shown above
+    findings-by-class.svg   the bar chart of findings by class
+```
+
+## Glossary
+
+| Term       | Meaning in this tool                                                        |
+|------------|------------------------------------------------------------------------------|
+| PRNG       | Pseudo-random number generator. `random` is one; it is not cryptographic.    |
+| CSPRNG     | Cryptographically secure PRNG, such as `secrets` or `os.urandom`.            |
