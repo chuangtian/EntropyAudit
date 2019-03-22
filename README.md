@@ -371,3 +371,16 @@ Why rationale text is mandatory per rule. A finding that says only "EA338" or
 "CWE-338" gives a reviewer a label, not a decision. The report walks
 `rationale.py`, which holds one explanation per rule id, and a test asserts every
 rule has non-empty rationale text and that none of it contains an em dash. The
+rationale is treated as part of the rule, not documentation bolted on after, so
+the report can never degrade into a bare checklist.
+
+## Repository layout
+
+```
+entropyaudit/
+  pyproject.toml            build config, console script, package metadata
+  README.md                 this file
+  CHANGELOG.md              release notes
+  LICENSE                   MIT
+  .gitignore                ignore rules
+  src/entropyaudit/
