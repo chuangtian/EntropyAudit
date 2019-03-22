@@ -384,3 +384,15 @@ entropyaudit/
   LICENSE                   MIT
   .gitignore                ignore rules
   src/entropyaudit/
+    __init__.py             package marker and __version__
+    __main__.py             entry point so `python -m entropyaudit` runs
+    cli.py                  argparse subcommands, file walking, exit codes
+    pyscan.py               ast.NodeVisitor walkers that record findings
+    patterns.py             rule definitions: id, title, severity, CWE class
+    context.py              decides whether a call site is security relevant
+    rationale.py            the per rule exploitability explanation text
+    report.py               line oriented, deterministic rendering
+  samples/
+    README.md               describes the two test vectors
+    vulnerable_auth.py      one construct per rule, EA004 twice
+    clean_auth.py           the same work done correctly, zero findings
