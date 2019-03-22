@@ -359,3 +359,15 @@ findings, not reordering noise.
 ## Design decisions
 
 Why `ast` rather than regex. A regex over source text cannot tell
+`random.seed(x)` where `random` is the standard library module from a local
+variable named `random`, cannot follow `import random as rng`, and cannot know
+whether `md5(...)` came from `hashlib`. entropyaudit resolves aliases and
+`from x import y` forms by collecting imports first, then walking the parsed tree
+with `NodeVisitor` subclasses. That is why the aliased-import and
+`hashlib.new("sha1")` cases have real tests: they are exactly the cases a regex
+would get wrong.
+
+Why rationale text is mandatory per rule. A finding that says only "EA338" or
+"CWE-338" gives a reviewer a label, not a decision. The report walks
+`rationale.py`, which holds one explanation per rule id, and a test asserts every
+rule has non-empty rationale text and that none of it contains an em dash. The
