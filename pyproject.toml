@@ -8,3 +8,5 @@ version = "1.0.0"
 description = "Static auditor for randomness and nonce hygiene in Python source."
 readme = "README.md"
 requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "EntropyAudit contributors" }]
