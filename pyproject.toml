@@ -22,3 +22,5 @@ Homepage = "https://github.com/chuangtian/EntropyAudit"
 Repository = "https://github.com/chuangtian/EntropyAudit"
 
 [project.scripts]
+entropyaudit = "entropyaudit.cli:main"
+
