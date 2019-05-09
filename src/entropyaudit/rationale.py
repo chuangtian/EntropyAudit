@@ -17,3 +17,6 @@ RATIONALE = {
         "every value the program will emit, including tokens, IDs, and choices "
         "meant to be unguessable. Seeding must come from an unpredictable "
         "source, and for security values use the secrets module."
+    ),
+    "EA002": (
+        "The random module is a Mersenne Twister, not a cryptographic "
