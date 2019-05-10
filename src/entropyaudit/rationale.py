@@ -30,3 +30,7 @@ RATIONALE = {
         "the program started. The search space is small, often a few million "
         "values across a plausible window, so an attacker can brute force the "
         "seed offline and reconstruct every generated value. Do not seed "
+        "security generators from time."
+    ),
+    "EA004": (
+        "A nonce or initialization vector bound to a constant repeats on every "
