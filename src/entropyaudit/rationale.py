@@ -34,3 +34,6 @@ RATIONALE = {
     ),
     "EA004": (
         "A nonce or initialization vector bound to a constant repeats on every "
+        "encryption. For stream ciphers and counter modes, reusing a nonce with "
+        "the same key lets an attacker xor two ciphertexts to cancel the "
+        "keystream and recover plaintext. Nonces must be unique per message and "
