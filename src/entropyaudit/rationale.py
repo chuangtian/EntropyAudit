@@ -27,3 +27,6 @@ RATIONALE = {
     ),
     "EA003": (
         "Seeding from the current time makes the sequence depend only on when "
+        "the program started. The search space is small, often a few million "
+        "values across a plausible window, so an attacker can brute force the "
+        "seed offline and reconstruct every generated value. Do not seed "
