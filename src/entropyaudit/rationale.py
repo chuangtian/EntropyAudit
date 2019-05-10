@@ -20,3 +20,7 @@ RATIONALE = {
     ),
     "EA002": (
         "The random module is a Mersenne Twister, not a cryptographic "
+        "generator. After observing a few hundred outputs an attacker can "
+        "recover the internal state and predict all future outputs. When the "
+        "value guards access, such as a token, password, session id, salt, or "
+        "nonce, use secrets or os.urandom instead."
