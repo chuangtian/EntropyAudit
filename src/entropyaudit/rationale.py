@@ -47,3 +47,6 @@ RATIONALE = {
         "salt per value."
     ),
     "EA006": (
+        "Fast hashes such as md5, sha1, and plain sha256 are designed for "
+        "speed, so an attacker with the stored digest can try billions of "
+        "password guesses per second on commodity hardware. Password storage "
