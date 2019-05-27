@@ -44,3 +44,6 @@ RATIONALE = {
         "all users and installs. This defeats the purpose of salting: an "
         "attacker can precompute one rainbow table and reuse it everywhere, and "
         "identical passwords become visibly identical. Generate a fresh random "
+        "salt per value."
+    ),
+    "EA006": (
