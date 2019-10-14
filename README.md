@@ -460,4 +460,4 @@ No dates are promised. Possible future work, in rough order of value:
 
 MIT. See [LICENSE](LICENSE).
 
-<!-- draft note 116 -->
+<!-- draft note 117 -->
