@@ -33,3 +33,11 @@ SECURITY_TERMS = (
     "xsrf",
     "otp",
     "auth",
+    "cookie",
+    "apikey",
+    "credential",
+    "cipher",
+    "encrypt",
+    "sign",
+    "hmac",
+)
