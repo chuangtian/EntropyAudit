@@ -57,3 +57,11 @@ SECURITY_IMPORTS = (
 _WORD = re.compile(r"[a-z0-9]+")
 
 
+def normalize(identifier: str) -> str:
+    """Lowercase an identifier and strip underscores for term matching."""
+    return identifier.replace("_", "").lower()
+
+
+def identifier_is_security_relevant(identifier: str) -> bool:
+    """True when identifier contains a security term.
+
