@@ -65,3 +65,11 @@ def normalize(identifier: str) -> str:
 def identifier_is_security_relevant(identifier: str) -> bool:
     """True when identifier contains a security term.
 
+    "iv" and "key" are short and could appear inside unrelated words, so they
+    are matched as whole tokens split on underscores or camelCase boundaries,
+    while longer terms match as substrings.
+    """
+    if not identifier:
+        return False
+    normalized = normalize(identifier)
+    for term in SECURITY_TERMS:
