@@ -73,3 +73,12 @@ def identifier_is_security_relevant(identifier: str) -> bool:
         return False
     normalized = normalize(identifier)
     for term in SECURITY_TERMS:
+        if len(term) <= 3:
+            # Whole-token match for short terms to avoid false hits like
+            # "give" matching "iv" or "monkey" matching "key".
+            tokens = _split_tokens(identifier)
+            if term in tokens:
+                return True
+        elif term in normalized:
+            return True
+    return False
