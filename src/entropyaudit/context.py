@@ -41,3 +41,11 @@ SECURITY_TERMS = (
     "sign",
     "hmac",
 )
+
+# Modules whose presence in a file marks the file as handling secrets.
+SECURITY_IMPORTS = (
+    "hashlib",
+    "hmac",
+    "secrets",
+    "ssl",
+    "cryptography",
