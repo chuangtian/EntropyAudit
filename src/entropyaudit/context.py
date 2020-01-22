@@ -49,3 +49,11 @@ SECURITY_IMPORTS = (
     "secrets",
     "ssl",
     "cryptography",
+    "nacl",
+    "Crypto",
+    "jwt",
+)
+
+_WORD = re.compile(r"[a-z0-9]+")
+
+
