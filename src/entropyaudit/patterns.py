@@ -6,3 +6,9 @@ always carries an explanation rather than a bare rule code.
 
 Severity ordering, from most to least serious: high, medium, low.
 """
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+
