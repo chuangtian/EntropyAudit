@@ -25,3 +25,9 @@ class Rule:
     category: str  # CWE-style category label
     cwe: str
 
+
+# Rule identifiers are referenced by pyscan.py when it records a finding and by
+# rationale.py when it renders the explanation. Keep them stable.
+RULES = {
+    "EA001": Rule(
+        rule_id="EA001",
