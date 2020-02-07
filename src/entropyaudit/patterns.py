@@ -31,3 +31,9 @@ class Rule:
 RULES = {
     "EA001": Rule(
         rule_id="EA001",
+        title="Predictable seed passed to random generator",
+        severity="high",
+        category="Use of Insufficiently Random Values",
+        cwe="CWE-330",
+    ),
+    "EA002": Rule(
