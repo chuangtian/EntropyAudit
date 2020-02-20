@@ -56,3 +56,9 @@ RULES = {
         severity="high",
         category="Reusing a Nonce or Key Pair in Encryption",
         cwe="CWE-323",
+    ),
+    "EA005": Rule(
+        rule_id="EA005",
+        title="Fixed salt used for key derivation or hashing",
+        severity="medium",
+        category="Use of a One-Way Hash with a Predictable Salt",
