@@ -35,3 +35,21 @@ RANDOM_CALLABLES = {
     "sample",
     "shuffle",
     "uniform",
+    "getrandbits",
+    "randbytes",
+}
+
+
+@dataclass(frozen=True)
+class Finding:
+    """A single detected issue in a source file."""
+
+    rule_id: str
+    path: str
+    line: int
+    col: int
+    snippet: str
+
+    def sort_key(self) -> tuple:
+        return (self.path, self.line, self.col, self.rule_id)
+
