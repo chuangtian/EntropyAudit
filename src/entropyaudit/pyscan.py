@@ -89,3 +89,21 @@ def scan_file(path: str) -> tuple[list[Finding], str | None]:
     """
     try:
         with open(path, "r", encoding="utf-8") as handle:
+            source = handle.read()
+    except OSError as exc:
+        return [], f"cannot read: {exc.strerror or exc}"
+    try:
+        findings = scan_source(source, path)
+    except SyntaxError as exc:
+        return [], f"syntax error at line {exc.lineno}"
+    return findings, None
+
+
+def _collect_imports(tree: ast.AST) -> _ImportInfo:
+    info = _ImportInfo()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                local = alias.asname or alias.name.split(".")[0]
+                info.module_aliases[local] = alias.name
+                info.imported_modules.add(alias.name)
