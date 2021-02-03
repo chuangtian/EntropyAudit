@@ -143,3 +143,21 @@ class _Visitor(ast.NodeVisitor):
         self.findings: list[Finding] = []
         self.file_secret_context = context.file_handles_secrets(imports.imported_modules)
 
+    def _add(self, rule_id: str, node: ast.AST) -> None:
+        self.findings.append(
+            Finding(
+                rule_id=rule_id,
+                path=self.path,
+                line=getattr(node, "lineno", 0),
+                col=getattr(node, "col_offset", 0),
+                snippet=self._node_snippet(node),
+            )
+        )
+
+    def _node_snippet(self, node: ast.AST) -> str:
+        try:
+            return ast.unparse(node)
+        except Exception:
+            return ""
+
+    def _resolves_to_random(self, func: ast.AST) -> str | None:
