@@ -71,3 +71,21 @@ def scan_source(source: str, path: str) -> list[Finding]:
 
     A file that fails to parse yields no findings; the caller is told through
     the returned parse error channel in scan_file.
+    """
+    tree = ast.parse(source)
+    imports = _collect_imports(tree)
+    visitor = _Visitor(path=path, imports=imports)
+    visitor.visit(tree)
+    findings = visitor.findings
+    findings.sort(key=lambda f: f.sort_key())
+    return findings
+
+
+def scan_file(path: str) -> tuple[list[Finding], str | None]:
+    """Scan a file on disk.
+
+    Returns (findings, error). error is None on success, otherwise a short
+    message describing why the file could not be scanned.
+    """
+    try:
+        with open(path, "r", encoding="utf-8") as handle:
