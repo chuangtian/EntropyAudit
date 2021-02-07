@@ -215,3 +215,21 @@ class _Visitor(ast.NodeVisitor):
     def _hashlib_call_name(self, func: ast.AST) -> str | None:
         """Return the hash algorithm name if func is a hashlib constructor.
 
+        Handles hashlib.md5(...), hashlib.new("md5"), and from hashlib import md5.
+        For hashlib.new the name comes from the first argument and is resolved by
+        the caller.
+        """
+        dotted = _dotted_name(func)
+        if dotted is None:
+            return None
+        head, _, leaf = dotted.rpartition(".")
+        if head:
+            canonical = self.imports.module_aliases.get(head, head)
+            if canonical.split(".")[0] == "hashlib":
+                return leaf
+        else:
+            origin = self.imports.name_aliases.get(dotted)
+            if origin and origin.split(".")[0] == "hashlib":
+                return origin.split(".")[-1]
+        return None
+
