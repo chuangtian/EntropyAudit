@@ -287,3 +287,22 @@ class _Visitor(ast.NodeVisitor):
     def _check_weak_hash(self, node: ast.Call) -> None:
         name = self._hashlib_call_name(node.func)
         algo = None
+        if name == "new" and node.args and isinstance(node.args[0], ast.Constant):
+            value = node.args[0].value
+            if isinstance(value, str):
+                algo = value.lower()
+        elif name is not None and name.lower() in WEAK_HASHES:
+            algo = name.lower()
+        if algo is None or algo not in WEAK_HASHES:
+            return
+        # Only flag as password handling when a password-like name is in scope
+        # for this call (target name carried by assignment, or the file clearly
+        # handles secrets and a password term appears in the target).
+        names = getattr(node, "_ea_target_names", []) or []
+        password_terms = ("password", "passwd", "pwd", "credential")
+        target_pw = any(
+            any(term in context.normalize(n) for term in password_terms) for n in names
+        )
+        if target_pw:
+            self._add("EA006", node)
+
