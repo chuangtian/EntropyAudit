@@ -233,3 +233,21 @@ class _Visitor(ast.NodeVisitor):
                 return origin.split(".")[-1]
         return None
 
+    @staticmethod
+    def _is_time_call(node: ast.AST) -> bool:
+        """True when node is a call into the time module (time.time, etc.)."""
+        if not isinstance(node, ast.Call):
+            return False
+        dotted = _dotted_name(node.func)
+        if dotted is None:
+            return False
+        return dotted.split(".")[0] == "time" or dotted.startswith("time.")
+
+    def visit_Call(self, node: ast.Call) -> None:
+        self._check_seed(node)
+        self._check_weak_prng(node)
+        self._check_weak_hash(node)
+        self.generic_visit(node)
+
+    def _check_seed(self, node: ast.Call) -> None:
+        is_seed = self._resolves_to_random_seed(node.func)
