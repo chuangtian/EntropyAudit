@@ -306,3 +306,21 @@ class _Visitor(ast.NodeVisitor):
         if target_pw:
             self._add("EA006", node)
 
+    def visit_Assign(self, node: ast.Assign) -> None:
+        target_names = _assign_target_names(node.targets)
+        # Attach target names to any call in the value so nested checks can use
+        # the enclosing identifier for security relevance.
+        for call in _iter_calls(node.value):
+            call._ea_target_names = target_names  # type: ignore[attr-defined]
+        self._check_constant_binding(node, target_names)
+        self.generic_visit(node)
+
+    def visit_AnnAssign(self, node: ast.AnnAssign) -> None:
+        target_names = _assign_target_names([node.target])
+        if node.value is not None:
+            for call in _iter_calls(node.value):
+                call._ea_target_names = target_names  # type: ignore[attr-defined]
+            self._check_constant_binding(node, target_names)
+        self.generic_visit(node)
+
+    def _check_constant_binding(self, node: ast.AST, target_names: list[str]) -> None:
