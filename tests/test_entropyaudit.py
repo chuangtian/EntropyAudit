@@ -46,3 +46,17 @@ class VulnerableSampleTests(unittest.TestCase):
         self.assertEqual(len(ea004), 2, "both the IV and nonce constants fire EA004")
 
     def test_total_count_is_seven(self):
+        self.assertEqual(len(self.findings), 7)
+
+
+class CleanSampleTests(unittest.TestCase):
+    def test_clean_sample_zero_findings(self):
+        findings, errors = cli.collect_findings(CLEAN)
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            findings, [], f"clean sample must be free of findings, got {_rule_ids(findings)}"
+        )
+
+    def test_non_security_random_not_flagged(self):
+        # random.choice for a greeting must not trip EA002.
+        source = (
