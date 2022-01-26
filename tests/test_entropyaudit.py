@@ -60,3 +60,18 @@ class CleanSampleTests(unittest.TestCase):
     def test_non_security_random_not_flagged(self):
         # random.choice for a greeting must not trip EA002.
         source = (
+            "import random\n"
+            "def pick():\n"
+            "    greeting = random.choice(['hi', 'hello'])\n"
+            "    return greeting\n"
+        )
+        findings = scan_source(source, "inline.py")
+        self.assertEqual(findings, [])
+
+
+class DetectionUnitTests(unittest.TestCase):
+    def test_constant_seed(self):
+        findings = scan_source("import random\nrandom.seed(42)\n", "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA001"])
+
+    def test_time_seed(self):
