@@ -89,3 +89,18 @@ class DetectionUnitTests(unittest.TestCase):
 
     def test_fixed_salt(self):
         findings = scan_source("password_salt = b'abc'\n", "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA005"])
+
+    def test_constant_nonce(self):
+        findings = scan_source("message_nonce = b'abc'\n", "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA004"])
+
+    def test_weak_password_hash(self):
+        source = (
+            "import hashlib\n"
+            "password_hash = hashlib.md5(b'x').hexdigest()\n"
+        )
+        findings = scan_source(source, "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA006"])
+
+    def test_hashlib_new_string_form(self):
