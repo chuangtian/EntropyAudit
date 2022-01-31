@@ -75,3 +75,17 @@ class DetectionUnitTests(unittest.TestCase):
         self.assertEqual(_rule_ids(findings), ["EA001"])
 
     def test_time_seed(self):
+        source = "import random\nimport time\nrandom.seed(time.time())\n"
+        findings = scan_source(source, "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA003"])
+
+    def test_security_named_target_triggers_ea002(self):
+        source = (
+            "import random\n"
+            "auth_token = random.getrandbits(64)\n"
+        )
+        findings = scan_source(source, "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA002"])
+
+    def test_fixed_salt(self):
+        findings = scan_source("password_salt = b'abc'\n", "s.py")
