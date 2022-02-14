@@ -104,3 +104,17 @@ class DetectionUnitTests(unittest.TestCase):
         self.assertEqual(_rule_ids(findings), ["EA006"])
 
     def test_hashlib_new_string_form(self):
+        source = (
+            "import hashlib\n"
+            "password_hash = hashlib.new('sha1', b'x')\n"
+        )
+        findings = scan_source(source, "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA006"])
+
+    def test_aliased_random_import(self):
+        source = (
+            "import random as rng\n"
+            "session_key = rng.randint(0, 9)\n"
+        )
+        findings = scan_source(source, "s.py")
+        self.assertEqual(_rule_ids(findings), ["EA002"])
