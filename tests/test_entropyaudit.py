@@ -118,3 +118,18 @@ class DetectionUnitTests(unittest.TestCase):
         )
         findings = scan_source(source, "s.py")
         self.assertEqual(_rule_ids(findings), ["EA002"])
+
+    def test_bool_and_none_not_flagged_as_nonce(self):
+        # A nonce name bound to None or a bool is not a constant secret.
+        findings = scan_source("nonce = None\nuse_iv = True\n", "s.py")
+        self.assertEqual(findings, [])
+
+
+class RationaleAndRuleTests(unittest.TestCase):
+    def test_every_rule_has_rationale(self):
+        for rule_id in patterns.RULES:
+            text = rationale.explain(rule_id)
+            self.assertTrue(text.strip(), f"{rule_id} needs rationale text")
+
+    def test_no_em_dash_in_rationale(self):
+        for rule_id in patterns.RULES:
