@@ -147,3 +147,18 @@ class DeterminismTests(unittest.TestCase):
         code1, out1 = self._capture(["scan", SAMPLES])
         code2, out2 = self._capture(["scan", SAMPLES])
         self.assertEqual(code1, 1)
+        self.assertEqual(out1, out2, "identical input must yield identical output")
+
+    def test_clean_exit_zero(self):
+        code, _ = self._capture(["scan", CLEAN])
+        self.assertEqual(code, 0)
+
+    def test_version_exit_zero(self):
+        code, out = self._capture(["version"])
+        self.assertEqual(code, 0)
+        self.assertIn("entropyaudit", out)
+
+    def test_explain_unknown_rule_usage_error(self):
+        buffer = io.StringIO()
+        with redirect_stdout(buffer):
+            code = cli.main(["explain", "EA999"])
