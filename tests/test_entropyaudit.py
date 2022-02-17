@@ -133,3 +133,17 @@ class RationaleAndRuleTests(unittest.TestCase):
 
     def test_no_em_dash_in_rationale(self):
         for rule_id in patterns.RULES:
+            self.assertNotIn("\u2014", rationale.explain(rule_id))
+
+
+class DeterminismTests(unittest.TestCase):
+    def _capture(self, argv):
+        buffer = io.StringIO()
+        with redirect_stdout(buffer):
+            code = cli.main(argv)
+        return code, buffer.getvalue()
+
+    def test_scan_is_deterministic(self):
+        code1, out1 = self._capture(["scan", SAMPLES])
+        code2, out2 = self._capture(["scan", SAMPLES])
+        self.assertEqual(code1, 1)
