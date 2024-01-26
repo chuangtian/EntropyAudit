@@ -12,3 +12,7 @@ the code it reads.
 ```bash
 python -m compileall -q src
 PYTHONPATH=src python -m unittest discover -s tests -v
+PYTHONPATH=src python -m entropyaudit scan samples/vulnerable_auth.py
+```
+
+## Before you open a pull request
