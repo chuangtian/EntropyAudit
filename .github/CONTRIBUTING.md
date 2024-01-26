@@ -8,3 +8,7 @@ the code it reads.
 
 - Python 3.11+. There is nothing to install; the package uses the standard
   library only.
+
+```bash
+python -m compileall -q src
+PYTHONPATH=src python -m unittest discover -s tests -v
