@@ -16,3 +16,7 @@ PYTHONPATH=src python -m entropyaudit scan samples/vulnerable_auth.py
 ```
 
 ## Before you open a pull request
+
+1. `python -m compileall -q src` and the full test suite must pass.
+2. Every new rule needs: a code (`EA00x`), a pattern in
+   `src/entropyaudit/patterns.py`, a written rationale in
