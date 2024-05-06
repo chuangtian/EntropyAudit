@@ -8,3 +8,8 @@
       <stop offset="0" stop-color="#F59E0B"/>
       <stop offset="1" stop-color="#FBBF24"/>
     </linearGradient>
+    <radialGradient id="eglow" cx="0.78" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#F59E0B" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
