@@ -13,3 +13,8 @@
       <stop offset="1" stop-color="#F59E0B" stop-opacity="0"/>
     </radialGradient>
   </defs>
+  <rect width="1200" height="300" fill="url(#ebg)"/>
+  <rect width="1200" height="300" fill="url(#eglow)"/>
+  <g stroke="url(#eline)" stroke-width="1.4" fill="none" opacity="0.65">
+    <path d="M720 214 C 820 96, 940 236, 1052 122 S 1160 96, 1176 130"/>
+  </g>
