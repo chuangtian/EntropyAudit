@@ -18,3 +18,8 @@
   <g stroke="url(#eline)" stroke-width="1.4" fill="none" opacity="0.65">
     <path d="M720 214 C 820 96, 940 236, 1052 122 S 1160 96, 1176 130"/>
   </g>
+  <g fill="#F59E0B">
+    <circle cx="726" cy="212" r="3.4"/>
+    <circle cx="792" cy="152" r="2.6" opacity="0.85"/>
+    <circle cx="856" cy="178" r="3.0" opacity="0.9"/>
+    <circle cx="922" cy="140" r="2.4" opacity="0.75"/>
