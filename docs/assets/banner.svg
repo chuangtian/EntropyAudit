@@ -33,3 +33,8 @@
     <circle cx="886" cy="96" r="1.8"/>
     <circle cx="1012" cy="230" r="2"/>
     <circle cx="1136" cy="212" r="1.8"/>
+  </g>
+  <g font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif">
+    <text x="64" y="128" font-size="54" font-weight="700" fill="#F7EFE2" letter-spacing="0.5">EntropyAudit</text>
+    <text x="66" y="170" font-size="21" fill="#C9BBA4">Static auditor for randomness and nonce hygiene</text>
+    <text x="66" y="204" font-size="16" fill="#9C8F7A">Six rules for seeds, nonces, salts and weak hashes — findings with written exploitability rationale</text>
