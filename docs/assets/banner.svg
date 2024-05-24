@@ -23,3 +23,8 @@
     <circle cx="792" cy="152" r="2.6" opacity="0.85"/>
     <circle cx="856" cy="178" r="3.0" opacity="0.9"/>
     <circle cx="922" cy="140" r="2.4" opacity="0.75"/>
+    <circle cx="986" cy="188" r="3.2"/>
+    <circle cx="1044" cy="128" r="2.6" opacity="0.85"/>
+    <circle cx="1108" cy="150" r="3.4"/>
+    <circle cx="1168" cy="126" r="2.6" opacity="0.8"/>
+  </g>
