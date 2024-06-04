@@ -24,3 +24,11 @@
   <rect x="0" y="0" width="520" height="360" fill="#ffffff"/>
 
   <!-- Heading -->
+  <text x="16" y="28"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="16" font-weight="600" fill="#0f172a">Findings by class</text>
+  <text x="16" y="46"
+        font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif"
+        font-size="12" fill="#475569">Source: entropyaudit report samples. Total 7 findings.</text>
+
+  <!-- Plot area. Bars start at x=248. Scale: each unit = 96px, max value 2. -->
