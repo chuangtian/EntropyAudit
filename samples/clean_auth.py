@@ -6,3 +6,8 @@ report false positives on safe code. It imports hashlib and secrets so the
 file-level security context is active, which makes the zero-finding result a
 meaningful negative test.
 """
+
+import hashlib
+import secrets
+
+
