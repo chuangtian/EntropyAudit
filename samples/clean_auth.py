@@ -16,3 +16,8 @@ def make_session_token():
     session_token = secrets.token_hex(32)
     return session_token
 
+
+def generate_nonce():
+    # Correct: a fresh random nonce per call, not a constant.
+    message_nonce = secrets.token_bytes(12)
+    return message_nonce
