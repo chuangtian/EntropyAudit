@@ -21,3 +21,8 @@ def generate_nonce():
     # Correct: a fresh random nonce per call, not a constant.
     message_nonce = secrets.token_bytes(12)
     return message_nonce
+
+
+def store_password(password):
+    # Correct: a fresh random salt per password and a slow salted hash.
+    password_salt = secrets.token_bytes(16)
