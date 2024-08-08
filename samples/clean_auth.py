@@ -26,3 +26,7 @@ def generate_nonce():
 def store_password(password):
     # Correct: a fresh random salt per password and a slow salted hash.
     password_salt = secrets.token_bytes(16)
+    password_hash = hashlib.pbkdf2_hmac(
+        "sha256", password.encode("utf-8"), password_salt, 200000
+    )
+    return password_salt, password_hash
