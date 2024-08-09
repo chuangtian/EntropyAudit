@@ -7,3 +7,8 @@ software.
 """
 
 import hashlib
+import random
+import time
+
+
+# EA001: generator seeded from a literal constant.
