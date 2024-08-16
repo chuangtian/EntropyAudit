@@ -18,3 +18,8 @@ random.seed(1337)
 random.seed(time.time())
 
 # EA004: an IV bound to a constant, reused on every encryption.
+static_iv = b"0000000000000000"
+
+# EA004: a nonce bound to a constant.
+message_nonce = b"fixed-nonce-value"
+
