@@ -23,3 +23,9 @@ static_iv = b"0000000000000000"
 # EA004: a nonce bound to a constant.
 message_nonce = b"fixed-nonce-value"
 
+# EA005: a fixed salt used for hashing.
+password_salt = b"static-salt-1234"
+
+
+def make_session_token():
+    # EA002: the random module used to build a security token. Predictable
