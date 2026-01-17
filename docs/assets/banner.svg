@@ -38,3 +38,15 @@
     <text x="64" y="128" font-size="54" font-weight="700" fill="#F7EFE2" letter-spacing="0.5">EntropyAudit</text>
     <text x="66" y="170" font-size="21" fill="#C9BBA4">Static auditor for randomness and nonce hygiene</text>
     <text x="66" y="204" font-size="16" fill="#9C8F7A">Six rules for seeds, nonces, salts and weak hashes — findings with written exploitability rationale</text>
+    <g transform="translate(66,232)">
+      <rect width="158" height="28" rx="14" fill="none" stroke="#F59E0B" stroke-opacity="0.5"/>
+      <text x="79" y="19" font-size="13" fill="#F59E0B" text-anchor="middle">Python 3.11 · stdlib</text>
+    </g>
+    <g transform="translate(236,232)">
+      <rect width="150" height="28" rx="14" fill="none" stroke="#FBBF24" stroke-opacity="0.5"/>
+      <text x="75" y="19" font-size="13" fill="#FBBF24" text-anchor="middle">23 unit tests</text>
+    </g>
+  </g>
+</svg>
+
+<!-- draft note 1062 -->
