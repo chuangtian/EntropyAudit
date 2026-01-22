@@ -53,3 +53,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.2.0] - 2019-10-15
 
+### Added
+
+- AST-based file walker with directory recursion.
+- First six-rule scaffold and the initial test suite.
+
+## [0.1.0] - 2018-07-03
+
+### Added
+
+- First public release: single-file randomness scan.
+
+<!-- draft note 1065 -->
