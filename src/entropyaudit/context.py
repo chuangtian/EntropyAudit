@@ -107,5 +107,3 @@ def file_handles_secrets(imported_modules: set[str]) -> bool:
         if top in SECURITY_IMPORTS:
             return True
     return False
-
-# draft note 1064
