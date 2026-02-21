@@ -30,3 +30,12 @@ def store_password(password):
         "sha256", password.encode("utf-8"), password_salt, 200000
     )
     return password_salt, password_hash
+
+
+def pick_greeting():
+    # Non-security use of random is fine and must not be flagged. This name has
+    # no security term and the value never guards access.
+    import random
+
+    greetings = ["hello", "hi", "welcome"]
+    return random.choice(greetings)
