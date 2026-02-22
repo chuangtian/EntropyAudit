@@ -20,3 +20,12 @@ PYTHONPATH=src python -m entropyaudit scan samples/vulnerable_auth.py
 1. `python -m compileall -q src` and the full test suite must pass.
 2. Every new rule needs: a code (`EA00x`), a pattern in
    `src/entropyaudit/patterns.py`, a written rationale in
+   `src/entropyaudit/rationale.py`, a fixture, and a test.
+3. Keep the package dependency-free.
+
+## Pull requests
+
+- One topic per PR, conventional commit titles (`feat:`, `fix:`, `docs:`...).
+- By participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+<!-- draft note 1073 -->
