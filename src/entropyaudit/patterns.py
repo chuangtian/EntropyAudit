@@ -69,3 +69,18 @@ RULES = {
         title="Weak hash used for password handling",
         severity="high",
         category="Use of Password Hash With Insufficient Computational Effort",
+        cwe="CWE-916",
+    ),
+}
+
+
+def get_rule(rule_id: str) -> Rule:
+    """Return the rule for rule_id, raising KeyError if unknown."""
+    return RULES[rule_id]
+
+
+def all_rules_sorted() -> list[Rule]:
+    """Return every rule sorted by rule_id for deterministic listing."""
+    return [RULES[k] for k in sorted(RULES)]
+
+# draft note 1081
