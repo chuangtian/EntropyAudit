@@ -83,4 +83,4 @@ def all_rules_sorted() -> list[Rule]:
     """Return every rule sorted by rule_id for deterministic listing."""
     return [RULES[k] for k in sorted(RULES)]
 
-# draft note 1081
+# draft note 1083
