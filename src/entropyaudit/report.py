@@ -98,4 +98,4 @@ def _summary_line(findings: list[Finding]) -> str:
     noun = "finding" if total == 1 else "findings"
     return f"{total} {noun}: {high} high, {medium} medium, {low} low"
 
-# draft note 1075
+# draft note 1085
