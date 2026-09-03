@@ -20,5 +20,3 @@ jobs:
         run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Smoke run on the clean sample
         run: PYTHONPATH=src python -m entropyaudit scan samples/clean_auth.py
-
-# draft note 1078
