@@ -27,5 +27,3 @@ PYTHONPATH=src python -m entropyaudit scan samples/vulnerable_auth.py
 
 - One topic per PR, conventional commit titles (`feat:`, `fix:`, `docs:`...).
 - By participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
-
-<!-- draft note 1073 -->
