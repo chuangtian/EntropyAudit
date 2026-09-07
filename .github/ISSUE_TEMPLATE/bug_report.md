@@ -16,3 +16,9 @@ Smallest file or snippet that triggers it, plus the command:
 
 ```bash
 PYTHONPATH=src python -m entropyaudit scan path/to/file.py
+```
+
+**Environment**
+
+- OS:
+- Python version (`python --version`):
