@@ -63,5 +63,3 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 
 - First public release: single-file randomness scan.
-
-<!-- draft note 1092 -->
