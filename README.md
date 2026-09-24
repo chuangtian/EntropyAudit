@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/banner.svg" alt="EntropyAudit — static auditor for randomness and nonce hygiene in Python source" width="100%">
+  <img src="docs/assets/banner.svg" alt="EntropyAudit - static auditor for randomness and nonce hygiene in Python source" width="100%">
 </p>
 
 <p align="center"><em>Static auditor for randomness and nonce hygiene in Python source trees.</em></p>
