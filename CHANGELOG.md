@@ -8,6 +8,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - Rule wording is being reviewed for the next patch.
+- A duplicate-seed pattern for generator wrappers is being sketched.
 
 ## [1.0.0] - 2026-05-19
 
